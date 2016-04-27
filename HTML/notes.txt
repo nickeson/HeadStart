@@ -1,0 +1,23 @@
+create homework folder by my name (2-3 layers deep in Google Drive/Training Docs
+
+Turning languange can do:
+Business Logic (make decision)
+Control decision flow
+Control how something looks
+HTML isn't a turing language on it's own (requires javaScript, cgi to complete)
+
+DOM = Document Object Model
+
+Meta Data
+Header
+Body
+Footer
+
+HTML is 'the object that is the form'
+
+difference between .htm and .html (legacy from 8.3 format)
+
+Doctype declaration should be HTML5 compliant:
+<!DOCTYPE HTML>    (Use WC3 Validator!)
+
+Put non-essential script declarations at the bottom (footer), not in the header - browser waits to load scripts located in the header, which slows down page load
