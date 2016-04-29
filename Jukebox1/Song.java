@@ -11,6 +11,17 @@ class Song implements Comparable<Song>{
 	String rating;
 	String bpm;
 
+	// we must override hashCode() and equals() to get HashSet to work properly
+	// and not add duplicates
+	public boolean equals(Object aSong) {
+		Song s = (Song) aSong;
+		return getTitle().equals(s.getTitle());
+	}
+
+	public int hashCode() {
+		return title.hashCode();
+	}
+
 	// the sort() method sends a Song to compareTo() to see how that Song 
 	// compares to the Song on which the method was invoked
 	// when we implement the interface, we have to implement compareTo() method
@@ -47,7 +58,7 @@ class Song implements Comparable<Song>{
 	// overriding Object.toString method to print just title, instead of 
 	// name@hashCode which prints by default
 	public String toString() {
-		// return title;
+		// return artist + ": " + title;
 
 		// this return statement prints all populated instance vars for object
 		return title + "|" + artist + "|" + rating + "|" + bpm;

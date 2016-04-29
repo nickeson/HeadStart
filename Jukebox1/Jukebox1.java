@@ -51,7 +51,10 @@ public class Jukebox1 {
 	*/
 	class RatingCompare implements Comparator<Song> {
 		public int compare(Song one, Song two) {
-			return Integer.parseInt(one.getRating()) - Integer.parseInt(two.getRating());
+			int paramOne = Integer.parseInt(one.getRating());
+			int paramTwo = Integer.parseInt(two.getRating());
+
+			return paramOne - paramTwo;
 		}
 	}
 
@@ -65,11 +68,10 @@ public class Jukebox1 {
 	*/
 	class BpmCompare implements Comparator<Song> {
 		public int compare(Song one, Song two) {
-			System.out.println("One's BPM: " + one.getBpm());
-			System.out.println("Two's BPM: " + two.getBpm());
-			System.out.println("Comparator value: " + (Integer.parseInt(one.getBpm()) - Integer.parseInt(two.getBpm())) + "\n");
+			int paramOne = Integer.parseInt(one.getBpm());
+			int paramTwo = Integer.parseInt(two.getBpm());
 
-			return Integer.parseInt(one.getBpm()) - Integer.parseInt(two.getBpm());
+			return paramOne - paramTwo;
 		}
 	}
 	
@@ -84,38 +86,39 @@ public class Jukebox1 {
 		/* Sort songList alphabetically (sort by artist or song title depends on
 		* which addSong method we choose - see below; print sorted results
 		*/
-		// Collections.sort(songList);
-		// System.out.println(songList);
+		Collections.sort(songList);
+		System.out.println(songList);
 
+		// these inner classes require SONG OBJECTS, NOT STRING OBJECTS
 		// make new instances of Comparator inner classes
-		ArtistCompare artistCompare = new ArtistCompare();
-		TitleCompare titleCompare = new TitleCompare();
-		RatingCompare ratingCompare = new RatingCompare();
-		BpmCompare bpmCompare = new BpmCompare();
+		//ArtistCompare artistCompare = new ArtistCompare();
+		//TitleCompare titleCompare = new TitleCompare();
+		//RatingCompare ratingCompare = new RatingCompare();
+		//BpmCompare bpmCompare = new BpmCompare();
 
 		// sort artistCompare instance using artistCompare object as custom
 		// comparator for Collections.sort
-		Collections.sort(songList, artistCompare);
-		System.out.println("\nSongs sorted (alphabetically) by Artist: ");
-		System.out.println(songList + "\n");
+		//Collections.sort(songList, artistCompare);
+		//System.out.println("\nSongs sorted (alphabetically) by Artist: ");
+		//System.out.println(songList + "\n");
 
 		// sort titleCompare instance using titleCompare object as custom
 		// comparator for Collections.sort
-		Collections.sort(songList, titleCompare);
-		System.out.println("Songs sorted (alphabetically) by Title: ");
-		System.out.println(songList + "\n");
+		//Collections.sort(songList, titleCompare);
+		//System.out.println("Songs sorted (alphabetically) by Title: ");
+		//System.out.println(songList + "\n");
 		
 		// sort ratingCompare instance using ratingCompare object as custom
 		// comparator for Collections.sort
-		Collections.sort(songList, ratingCompare);
-		System.out.println("Songs sorted by Rating: ");
-		System.out.println(songList + "\n");
+		//Collections.sort(songList, ratingCompare);
+		//System.out.println("Songs sorted by Rating: ");
+		//System.out.println(songList + "\n");
 		
 		// sort bpmCompare instance using bpmCompare object as custom
 		// comparator for Collections.sort
-		Collections.sort(songList, bpmCompare);
-		System.out.println("Songs sorted by Beats per Minute: ");
-		System.out.println(songList + "\n");
+		//Collections.sort(songList, bpmCompare);
+		//System.out.println("Songs sorted by Beats per Minute: ");
+		//System.out.println(songList + "\n");
 	}
 
 	void getSongs() {
@@ -160,19 +163,18 @@ public class Jukebox1 {
 
 		// addSong (full artistName/songName format) from 'file', no delimiter
 		// ================================
-		// String currLine = lineToParse;
-		// songList.add(currLine);
+		// songList.add(lineToParse);
 	// }
 		
 	// USE THIS CODE FOR SONG OBJECTS
 	void addSong(String lineToParse) {
 		// using String.split, split lineToParse param at "/" delimiter into
 		// String Array called 'tokens'
-		String[] tokens = lineToParse.split("/");
+	 	String[] tokens = lineToParse.split("/");
 
 		// create new Song object called 'nextSong', passing args 'tokens[]'
 		// from tokens String array, split at "/" delimiter
-		Song nextSong = new Song(tokens[0], tokens[1], tokens[2], tokens[3]);
-		songList.add(nextSong);
+	 	Song nextSong = new Song(tokens[0], tokens[1], tokens[2], tokens[3]);
+	 	songList.add(nextSong);
 	}
 }
